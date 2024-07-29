@@ -1,0 +1,283 @@
+*,body{
+  box-sizing: border-box;
+  border: 0;
+  margin: 0;
+}
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  flex-direction:column;
+  gap:50px;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+  margin: 50px;
+
+  /* font for buttons , a , everything except below*/
+  font-family: 'Hind Madurai', sans-serif;
+}
+
+.property-card h1,h2{
+  font-family: 'Montserrat', sans-serif;
+}
+.property-card h3,h4{
+  font-family: 'Lora',serif;
+}
+.property-card p{
+  font-family: 'Hind Madurai', sans-serif;
+}
+
+:root{
+  /* Example 1 - Colour Variables */
+  --clr-1-pri-white: #FAFAFA;
+  --clr-1-pri-black: #303030;
+  --clr-1-pri-accent:#3acba4;
+
+  --clr-1-grey-light:#e8e8e8;
+  --clr-1-grey-med:;
+  --clr-1-grey-dark:#707070;
+  /* Example 2 - Colour Variables */
+  --clr-2-pri-white: #FFFFFF;
+  --clr-2-pri-black: #151131;
+  --clr-2-pri-accent:#6C50F4;
+
+  --clr-2-shade-light:#F6F1FE;
+  --clr-2-shade-med:#B3AAE0;
+  /* Example 3 - Colour Variables */
+  --clr-3-pri-light:#5c5c5c;
+  --clr-3-pri-dark: #151131;
+}
+
+/*--------------------------------- Example 1 ----------------------------------*/
+
+.property-card {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  overflow: hidden;
+  width: 500px;
+}
+
+.property-image { /* image sizing */
+  width: 100%;
+  position: relative;
+}
+.property-image img{ /* image sizing */
+  width: 100%;
+}
+
+/* navigation over image */
+.navigation-arrow{ /* arrows */
+  position: absolute;
+  top: 50%;
+
+  background-color: var(--clr-1-grey-light);
+  padding: 2px 5px 0 5px;
+  border-radius: 50%;
+}
+.navigation-arrow:hover{
+  color: var(--clr-1-pri-accent);
+}
+.navigation-arrow.left{  
+  left: 10px;
+}
+.navigation-arrow.right{
+  right: 10px;
+}
+.image-number{ /* image num indicator */
+  position: absolute;
+  top: 10px;
+  left: 10px;
+
+  background-color: var(--clr-1-grey-light);
+  padding: 6px 10px;
+  border-radius: 50px;
+}
+.image-number i{
+  color: var(--clr-1-pri-accent);
+}
+
+/* Property Details */
+/* property description */
+.property-description{
+  padding: 15px 25px 0 25px;
+}
+.property-description .price{
+  color: var(--clr-1-pri-accent);
+  margin-bottom: 5px;
+}
+.property-description .description{
+  color: var(--clr-1-pri-black);
+  font-weight: 500;
+}
+.property-description .location{
+  color: var(--clr-1-grey-dark);
+}
+/* property icons */
+.property-icons{
+  padding: 15px 25px;
+  
+  display: flex;
+  gap: 30px;
+}
+.property-icons div i{
+  color: var(--clr-1-pri-accent);
+}
+/* estate agent */
+.property-contact{
+  display: flex;
+  align-items: center;
+  gap: 20px;
+
+  padding: 25px;
+
+  background-color: var(--clr-1-grey-light);
+  color: var(--clr-1-grey-dark);
+}
+.property-contact img{
+  width: 100px;
+  height: 40px;
+  object-fit: cover;
+  object-position: 0% 32%;
+
+}
+/*------------------------------- Example 2 --------------------------------*/
+
+.plan-selection {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+/* container */
+.plan-card{
+  width: 120px;
+  height: 120px;
+  border-radius: 10px;
+  position: relative;
+  transition: 0.25s ease;
+
+  box-shadow: 0px 0px 6px 0px rgba(118, 118, 118, 0.4);
+}
+/* card content */
+.plan-card-content{
+  width: 100%;
+  height: 100%;
+  border-radius: 10px;
+  padding: 15px;
+
+  transition: 0.1s linear;
+}
+/* checkbox styling*/
+.plan-card input{
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  z-index: 2;
+  opacity: 0;
+}
+/* Text styling */
+.plan-card-content label{
+  letter-spacing: 0.1em;
+  font-weight: 500;
+  font-size: 0.7em;
+  color: var(--clr-2-shade-med);
+}
+.plan-card-content span.data{
+  font-size: 2.25em;
+  font-weight: 500;
+}
+.plan-card-content span.data-gb{
+  font-size: 0.8em;
+  font-weight: 500;
+}
+.plan-card-content span.price{
+  color: var(--clr-2-pri-accent);
+  font-weight: 500;
+}
+.plan-card-content span.price-suffix{
+  color: var(--clr-2-shade-med);
+}
+
+/* Functionality eg. pseudo elements hover etc */
+.plan-card:hover{ /* scale up on hover */
+  transform: scale(1.1);
+  box-shadow: 0px 6px 11px 0px rgba(118, 118, 118, 1);
+}
+.plan-card input:checked ~ .checkmark{ /* adds bg of tick icon upon checked*/
+  position: absolute;
+  width: 16px;
+  height: 16px;
+
+  border-radius: 50%;
+  background-color: var(--clr-2-pri-accent);
+
+  top: 10px;
+  right: 10px;
+}
+.plan-card input:checked ~ .checkmark::after{ /* adds check to selected tile */
+  font-family: "Font Awesome 5 Free";
+  content: '\f00c';
+  font-weight: 900;
+  color: var(--clr-2-shade-light);
+
+  position: absolute;
+
+  font-size: 0.75em;
+  top: 1.5px;
+  right: 3px;
+}
+.plan-card input:checked ~ .plan-card-content{
+  border: 2px solid var(--clr-2-pri-accent);
+  background-color: var(--clr-2-shade-light);
+}
+/*--------------------------------- Example 3 -----------------------------------*/
+
+/* fonts */
+.payment-plan h1,h2{
+  font-family:'Montserrat', sans-serif;
+  color: var(--clr-3-pri-dark); 
+  line-height: 2.5em;
+}
+.payment-plan p,li{
+  color: var(--clr-3-pri-light);
+  margin-bottom: 0.5em;
+}
+
+.payment-plan ol{
+  counter-reset: li;
+  list-style: none;
+  *list-style: decimal; /* Keep using default numbering for IE6/7 */
+  font-size: 15px ;
+  padding: 0;
+  margin-left: 15px;
+  margin-bottom: 4em;
+}
+.payment-plan a{
+  position: relative;
+  display: block;
+  padding: .4em .4em .4em 2em;
+  *padding: .4em;
+  margin: .5em 0;
+  background: #ddd;
+  color: #444;
+  text-decoration: none;
+  border-radius: .3em;
+}
+.payment-plan a:before{
+  content: counter(li);
+  counter-increment: li;
+  position: absolute;
+  left: -1em;
+  top: 50%;
+  margin-top: -1.3em;
+  background: var(--clr-3-pri-dark);
+  height: 2em;
+  width: 2em;
+  line-height: 2em;
+  border: .3em solid #fff;
+  text-align: center;
+  font-weight: bold;
+  border-radius: 2em;
+  color: var(--clr-1-pri-white);
+}
